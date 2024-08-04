@@ -6,6 +6,6 @@ scope = "user-read-recently-played"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
 results = sp.current_user_recently_played()
-for idx, item in enumerate(results['items']):
+for item in results['items']:
     track = item['track']
-    print(idx, track['artists'][0]['name'], " – ", track['name'])
+    print(track['artists'][0]['name'], " - ", track['name'], " - ", track["uri"])
