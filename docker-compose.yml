@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    user: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+  grafana:
+    depends_on:
+      db:
+        condition: service_healthy
+    build:
+      context: ./grafana
+      dockerfile: grafana.Dockerfile
+    ports:
+      - "3000:3000"
+  query:
+    build:
+      context: ./query
+      dockerfile: query.Dockerfile
