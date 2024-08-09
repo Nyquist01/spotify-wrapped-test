@@ -4,18 +4,17 @@ Proof of concept for a Spotify user metric dashboard. Using [Spotipy](https://sp
 
 # quick-start
 
-The following can be obtained by creating an app in the [Spotify Developer dashboard](https://developer.spotify.com/dashboard):
+
+1. Clone this repository
+
+2. Build container images with `docker compose build`
+
+3. Start containers with `docker compose up`
+
+The following configs need to be obtained by creating an app in the [Spotify Developer dashboard](https://developer.spotify.com/dashboard):
 
 ```
 export SPOTIPY_CLIENT_ID='your-spotify-client-id'
 export SPOTIPY_CLIENT_SECRET='your-spotify-client-secret'
 export SPOTIPY_REDIRECT_URI='your-app-redirect-url'
-```
-
-Create a python virtual environment for this project and install the packages:
-
-```
-cd spotify-wrapped-test/
-python3 -m venv .
-pip3 -r install requirements.txt
 ```
